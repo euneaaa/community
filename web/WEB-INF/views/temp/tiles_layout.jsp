@@ -7,8 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/res/css/<tiles:getAsString name="commonCss"/>.css">
-    <link rel="stylesheet" href="/res/css/<tiles:getAsString name="menuCss"/>/index.css">
-    <link rel="stylesheet" href="/res/css/<tiles:getAsString name="eachCss"/>.css">
+    <link rel="stylesheet" href="/res/css/<tiles:getAsString name="addr1"/>/index.css">
+    <link rel="stylesheet" href="/res/css/<tiles:getAsString name="addr2"/>.css">
     <script defer src="/res/js/<tiles:getAsString name="common"/>.js"></script>
     <script defer src="/res/js/<tiles:getAsString name="addr1"/>/index.js"></script>
     <script defer src="/res/js/<tiles:getAsString name="addr2"/>.js"></script>

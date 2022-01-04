@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/user")
 public class UserController {
 
+    @GetMapping("/login")
+    public void login(){}
+
     @GetMapping("/join")
     public void join(){}
 
