@@ -21,7 +21,7 @@
         <property name="typeAliasesPackage" value="com.koreait.community" />
     </bean>
 
-    <mybatis-spring:scan base-package="com.koreait.community"/>
+    <mybatis-spring:scan base-package="com.koreait.community" />
 
     <bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
         <property name="definitions">
