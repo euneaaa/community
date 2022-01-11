@@ -5,6 +5,5 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class BoardDto extends BoardEntity{
-
+public class BoardDto extends BoardEntity {
 }

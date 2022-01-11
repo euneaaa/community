@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,7 +21,10 @@ public class UserController {
     private UserService service;
 
     @GetMapping("/login")
-    public void login() {}
+    public void login(Model model) {
+        model.addAttribute("title", "로그인");
+        model.addAttribute("b_title", "b_로그인");
+    }
 
     @PostMapping("/login")
     public String loginProc(UserEntity entity, RedirectAttributes reAttr) {
@@ -39,7 +44,13 @@ public class UserController {
             }
             return "redirect:/user/login";
         }
-        return "redirect:/board/list";
+        return "redirect:/board/list/1";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession hs) {
+        hs.invalidate();
+        return "redirect:/user/login";
     }
 
     @GetMapping("/join")
@@ -54,7 +65,7 @@ public class UserController {
         }
         //회원가입 성공하면 로그인 처리
         service.login(entity);
-        return "redirect:/board/list";
+        return "redirect:/board/list/1";
     }
 
     @GetMapping("/idChk/{uid}")
@@ -63,5 +74,15 @@ public class UserController {
         Map<String, Integer> res = new HashMap();
         res.put("result", service.idChk(uid));
         return res;
+    }
+
+    @GetMapping("/mypage/profile")
+    public void mypageProfile() {}
+
+    @ResponseBody
+    @PostMapping("/mypage/profile")
+    public String mypageProfileProc(MultipartFile profileimg) {
+        System.out.println("fileName : " + profileimg.getOriginalFilename());
+        return "{\"result\": Good!!}";
     }
 }

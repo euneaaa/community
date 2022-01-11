@@ -12,15 +12,15 @@ public class UserUtils {
     @Autowired
     private HttpSession hs;
 
-    public void setLoginUser(UserEntity entity){
+    public void setLoginUser(UserEntity entity) {
         hs.setAttribute(Const.LOGIN_USER, entity);
     }
 
-    public UserEntity getLoginUser(){
+    public UserEntity getLoginUser() {
         return (UserEntity) hs.getAttribute(Const.LOGIN_USER);
     }
 
-    public int getLoginUserPK(){
-        return getLoginUser()==null? 0:getLoginUser().getIuser();
+    public int getLoginUserPk() {
+        return getLoginUser() == null ? 0 : getLoginUser().getIuser();
     }
 }
