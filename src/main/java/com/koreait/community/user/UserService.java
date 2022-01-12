@@ -1,15 +1,19 @@
 package com.koreait.community.user;
 
+import com.koreait.community.Const;
+import com.koreait.community.MyFileUtils;
 import com.koreait.community.UserUtils;
 import com.koreait.community.model.UserEntity;
 import org.springframework.beans.BeanUtils;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class UserService {
-
+    @Autowired
+    private MyFileUtils fileUtils;
     @Autowired
     private UserMapper mapper;
 
@@ -53,5 +57,28 @@ public class UserService {
         entity.setUid(uid);
         UserEntity result = mapper.selUser(entity);
         return result == null ? 1 : 0;
+    }
+
+    public String uploadProfileImg(MultipartFile mf){
+        if(mf ==null){return "";}
+        String path = Const.UPLOAD_IMG_PATH+"/user/"+userUtils.getLoginUserPk();
+        fileUtils.delFolderFiles(path,true);
+        String fileNm = fileUtils.savefile(path, mf);
+        System.out.println("fileNm : " + fileNm);
+
+        if(fileNm ==null){return null;}
+        UserEntity entity = new UserEntity();
+        entity.setIuser(userUtils.getLoginUserPk());
+        //기존 파일명
+        String oldFilePath = path+"/"+userUtils.getLoginUser().getProfileimg();
+        fileUtils.delFile(oldFilePath);
+
+        UserEntity loginUser = userUtils.getLoginUser();
+
+        entity.setProfileimg(fileNm);
+        mapper.updUser(entity);
+        loginUser.setProfileimg(fileNm);
+
+        return fileNm;
     }
 }

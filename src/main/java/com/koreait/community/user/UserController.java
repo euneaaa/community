@@ -81,8 +81,12 @@ public class UserController {
 
     @ResponseBody
     @PostMapping("/mypage/profile")
-    public String mypageProfileProc(MultipartFile profileimg) {
-        System.out.println("fileName : " + profileimg.getOriginalFilename());
-        return "{\"result\": Good!!}";
+    public Map<String, String> mypageProfileProc(MultipartFile profileimg){ //profile js에 fData name 이랑 맞춰줘야함
+        String fileNm = service.uploadProfileImg(profileimg);
+        System.out.println("fileName: " + profileimg.getOriginalFilename());
+        Map<String, String> result = new HashMap<>();
+
+        result.put("result",fileNm);
+        return result;
     }
 }
