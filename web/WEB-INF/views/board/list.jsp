@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="my" uri="tld/MyCustomJstlTag.tld" %>
 <div>
     <c:if test="${sessionScope.loginUser != null}">
         <a href="/board/write?icategory=${requestScope.icategory}">글쓰기</a>
@@ -25,7 +26,14 @@
                         <td>${item.iboard}</td>
                         <td><c:out value="${item.title}"/></td>
                         <td>${item.hits}</td>
-                        <td>${item.writernm}</td>
+                        <td>
+                            <div class="flex-container">
+                                <div class="m-r-10"><my:profileImg classVal="pointer circular--img circular--size30"
+                                                                                              iuser="${item.iuser}"
+                                                                                              profileImgVal="${item.profileimg}"/></div>
+                                <div>${item.writernm}</div>
+                            </div>
+                        </td>
                         <td>${item.rdt}</td>
                     </tr>
                 </c:forEach>

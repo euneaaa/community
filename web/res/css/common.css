@@ -6,6 +6,8 @@ a{text-decoration: none;}
 
 header {background-color: #84d592;}
 footer { background-color: #4d4d4d; }
+.submenu-title {height:100%; background-color: #efc6d0}
+.submenu-section {background-color: #efefef}
 
 table, th, td { border: 1px solid #4f4f4f; border-collapse: collapse; }
 th, td { padding: 7px; }
@@ -18,11 +20,14 @@ ul { list-style: none; }
 .flex-center { justify-content: center; align-items: center; }
 .flex-direction-column { flex-direction: column;}
 
-.menu-selected { font-weight: bold; font-size: larger; }
+.menu-selected { font-weight: bolder; font-size: larger; }
+.msg { color: #ff3333; font-weight: bold; }
 
 .record:hover { background-color: #e1dddd; cursor: pointer; }
 
 .font-color-white {color: white;}
+.font-color-black {color: black;}
+.font-solid {font-weight: bold; text-shadow: -1px 0 #ffffff, 0 1px #ffffff, 1px 0 #ffffff, 0 -1px #ffffff;}
 .hidden { display: none; }
 
 .h-50{height: 50px;}

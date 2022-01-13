@@ -1,5 +1,7 @@
 package com.koreait.community;
 
+import com.koreait.community.model.BoardCategoryEntity;
+import com.koreait.community.model.SubMenuVo;
 import org.apache.tiles.Attribute;
 import org.apache.tiles.AttributeContext;
 import org.apache.tiles.preparer.ViewPreparer;
@@ -16,10 +18,24 @@ public class MenuPreparer implements ViewPreparer {
     @Autowired
     private CommonMapper mapper;
 
+    private List<BoardCategoryEntity> menuList;
+    private List<SubMenuVo> subMenuList;
+
     @Override
     public void execute(Request request, AttributeContext attributeContext) {
+        if(menuList == null) {
+            menuList = mapper.selMenuCategoryList();
+        }
         System.out.println(" ------- Called MenuPreparer-execute method --------- ");
         attributeContext.putAttribute(Const.MENU_LIST,
-                new Attribute(mapper.selMenuCategoryList()), true);
+                new Attribute(menuList), true);
+
+        if(subMenuList == null) {
+            subMenuList = new ArrayList<>();
+            subMenuList.add(new SubMenuVo("profile", "프로필"));
+            subMenuList.add(new SubMenuVo("password", "비밀번호 변경"));
+        }
+        attributeContext.putAttribute(Const.SUB_MENU_LIST,
+                new Attribute(subMenuList), true);
     }
 }
