@@ -3,6 +3,7 @@ package com.koreait.community.board;
 import com.koreait.community.UserUtils;
 import com.koreait.community.model.BoardDto;
 import com.koreait.community.model.BoardEntity;
+import com.koreait.community.model.BoardPrevNextVo;
 import com.koreait.community.model.BoardVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,7 @@ public class BoardService {
     public List<BoardVo> selBoardList(BoardDto dto) {
         return mapper.selBoardList(dto);
     }
+
     public BoardVo selBoard(BoardDto dto) { //iboard, lastip
         BoardVo detail = mapper.selBoard(dto);
         if(dto.getLastip() != null && !Objects.equals(dto.getLastip(), detail.getLastip())) {
@@ -36,6 +38,10 @@ public class BoardService {
             }
         }
         return detail;
+    }
+
+    public BoardPrevNextVo selPrevNext (BoardVo vo){
+        return mapper.selPrevNext(vo);
     }
 
     public int updBoard(BoardEntity entity) {

@@ -23,7 +23,7 @@
                     <div class="m-r-10"><a href="/user/login" class="font-color-white">로그인</a> </div>
                 </c:when>
                 <c:otherwise>
-                    <div class="m-r-20"><a href="/user/mypage/profile"><my:profileImg classVal="pointer circular--img circular--size30"
+                    <div class="m-r-10"><a href="/user/mypage/profile"><my:profileImg classVal="pointer circular--img circular--size30"
                                                                                       iuser="${sessionScope.loginUser.iuser}"
                                                                                       imgIdVal="header-img"
                                                                                       profileImgVal="${sessionScope.loginUser.profileimg}"/></a></div>

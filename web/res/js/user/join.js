@@ -70,12 +70,16 @@
                 alert(msg1);
                 return;
             }
+            /*
             fetch(`/user/idChk/${idVal}`)
             .then(res => res.json())
             .then((data) => {
                 setIdChkMsg(data);
             }).catch((e)=> {
                console.log(e);
+            });*/
+            myFetch.get(`/user/idChk/${idVal}`, (data) => {
+                setIdChkMsg(data);
             });
         });
     }
