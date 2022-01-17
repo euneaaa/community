@@ -1,12 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<div>
 <c:if test="${sessionScope.loginUser.iuser == data.iuser}">
     <div>
         <button id="modBtn">수정</button>
         <button id="delBtn">삭제</button>
     </div>
 </c:if>
-<div id="data" data-icategory="${data.icategory}" data-iboard="${data.iboard}"></div>
+<div id="data" data-icategory="${data.icategory}" data-iboard="${data.iboard}" data-iuser="${sessionScope.loginUser.iuser}"></div>
 <div>
     <c:if test="${requestScope.prevNext.previboard>0}">
         <a href="/board/detail?iboard=${requestScope.prevNext.previboard}">이전글</a>
@@ -30,5 +31,6 @@
         </form>
     </div>
 </c:if>
-<div>댓글 목록</div>
+<div id="cmt_list">댓글 목록</div>
+</div>
 
