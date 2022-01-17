@@ -1,0 +1,8 @@
+table {width:90%; border-right: 0; border-left: 0;
+}
+table th {background-color: #84d592}
+table tr td:first-child {text-align: center;}
+table tr td:nth-child(4) {border-right: 0;}
+table tr td:nth-child(2) {border-left: 0; text-align: left;}
+table button {background-color: #ffffff; border: none; margin: 1px; padding: 1px; border-radius: 3px;}
+table td:nth-child(3) div {display: flex; align-items: center; justify-content: center; margin: 0; gap: 10px;}
