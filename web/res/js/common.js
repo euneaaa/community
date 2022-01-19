@@ -46,6 +46,14 @@ const myFetch = {
         }), cb);
     },
 
+    put: function(url, cb, param) {
+        return this.send(fetch(url, {
+            'method': 'put',
+            'headers': { 'Content-Type': 'application/json' },
+            'body': JSON.stringify(param)
+        }), cb)
+    },
+
     delete: function (url, cb){
         return this.send(fetch(url, {
             'method' : 'delete',

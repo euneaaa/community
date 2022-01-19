@@ -6,22 +6,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/res/css/<tiles:getAsString name='common'/>.css?ver=2">
     <link rel="stylesheet" href="/res/css/<tiles:getAsString name='addr1'/>/index.css?ver=2">
     <link rel="stylesheet" href="/res/css/<tiles:getAsString name='addr2'/>.css?ver=2">
 
-    <script defer src="/res/js/<tiles:getAsString name='common'/>.js?ver=2"></script>
-    <script defer src="/res/js/<tiles:getAsString name='addr1'/>/index.js?ver=3"></script>
-    <script defer src="/res/js/<tiles:getAsString name='addr2'/>.js?ver=3"></script>
+    <script defer src="/res/js/<tiles:getAsString name='common'/>.js"></script>
+    <script defer src="/res/js/<tiles:getAsString name='addr1'/>/index.js"></script>
+    <script defer src="/res/js/<tiles:getAsString name='addr2'/>.js"></script>
     <title><tiles:getAsString name="title" /></title>
 </head>
 <body>
-    <div id="container">
-        <tiles:insertAttribute name="header" />
-        <section>
-            <tiles:insertAttribute name="body" />
-        </section>
-        <tiles:insertAttribute name="footer" />
-    </div>
+<div id="container">
+    <tiles:insertAttribute name="header" />
+    <section>
+        <tiles:insertAttribute name="body" />
+    </section>
+    <tiles:insertAttribute name="footer" />
+</div>
 </body>
 </html>

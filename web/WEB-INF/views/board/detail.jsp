@@ -7,7 +7,13 @@
         <button id="delBtn">삭제</button>
     </div>
 </c:if>
-<div id="data" data-icategory="${data.icategory}" data-iboard="${data.iboard}" data-iuser="${sessionScope.loginUser.iuser}"></div>
+<div id="data" data-icategory="${data.icategory}"
+     data-iboard="${data.iboard}"
+     data-nm="${sessionScope.loginUser.nm}"
+     data-iuser="${sessionScope.loginUser.iuser}"
+     data-profileimg="${sessionScope.loginUser.profileimg}">
+
+</div>
 <div>
     <c:if test="${requestScope.prevNext.previboard>0}">
         <a href="/board/detail?iboard=${requestScope.prevNext.previboard}">이전글</a>
@@ -16,6 +22,11 @@
         <a href="/board/detail?iboard=${requestScope.prevNext.nextiboard}">다음글</a>
     </c:if>
 </div>
+    <c:if test="${sessionScope.loginUser != null}">
+        <div>
+            <i id="fav_icon" class="far fa-thumbs-up"></i>
+        </div>
+    </c:if>
 <div>
     <div>카테고리: ${data.categorynm}</div>
     <div>조회수: ${data.hits} | 등록일시: ${data.rdt}</div>

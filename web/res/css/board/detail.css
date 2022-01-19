@@ -1,5 +1,8 @@
-table {width:90%; border-right: 0; border-left: 0;
+table {width:90%; border-right: 0; border-left: 0; margin-top: 10px;
 }
+#fav_icon {font-size: 30px;}
+
+html {scroll-behavior: smooth;}
 table th {background-color: #84d592}
 table tr td:first-child {text-align: center;}
 table tr td:nth-child(4) {border-right: 0;}

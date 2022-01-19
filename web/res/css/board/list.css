@@ -1,6 +1,6 @@
 .record:hover { background-color: #efefef; cursor: pointer; }
 
-table {width: 80%; border-left: 0;border-right: 0;}
+table {width: 100%; border-left: 0;border-right: 0;}
 table th{background: #84d592;}
 table th:first-child, Table td:first-child{border-left: 0;}
 table th:last-child, Table td:last-child{border-right: 0;}

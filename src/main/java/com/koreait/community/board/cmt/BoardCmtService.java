@@ -17,13 +17,19 @@ public class BoardCmtService {
 
     public int insBoardCmt(BoardCmtEntity entity){
         entity.setIuser(userUtils.getLoginUserPk());
-        return mapper.insBoardCmt(entity);
+        mapper.insBoardCmt(entity);
+        return entity.getIcmt();
     }
 
     public List<BoardCmtVo> selBoardCmtList(int iboard){
         BoardCmtEntity entity = new BoardCmtEntity();
         entity.setIboard(iboard);
         return mapper.selBoardCmtList(entity);
+    }
+
+    public int updBoardCmt(BoardCmtEntity entity){
+        entity.setIuser(userUtils.getLoginUserPk());
+        return mapper.updBoardCmt(entity);
     }
 
     public int delBoardCmt(int icmt){
